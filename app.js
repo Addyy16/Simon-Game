@@ -4,7 +4,6 @@ let userSeq = [];
 let btns = ["red","yellow", "green", "purple"];
 
 let h2 = document.querySelector('h2');
-let body = document.querySelector('body');
 let level = 0;
 let started = false;
 
@@ -19,7 +18,7 @@ function btnFlash(btn){
     btn.classList.add("flash");
     setTimeout(function(){
         btn.classList.remove("flash");
-    }, 250);
+    }, 200);
 }
 
 function levelUp(){
@@ -31,4 +30,16 @@ function levelUp(){
     console.log(randIdx);
     let randBtn = document.querySelector(`.${randColor}`);
     btnFlash(randBtn);
+}
+
+function btnPress(){
+    if(started == true){
+        btnFlash(this);
+    }
+    
+}
+
+let allBtns = document.querySelectorAll(".btn");
+for(btn of allBtns){
+    btn.addEventListener("click", btnPress);
 }
