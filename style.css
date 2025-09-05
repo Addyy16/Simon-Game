@@ -2,12 +2,12 @@ body{
     text-align: center;
 }
 
-.boxCont{
+.btn-Cont{
     display: flex;
     justify-content: center;
 }
 
-.box{
+.btn{
     width: 200px;
     height: 200px;
     border: 10px solid black;
@@ -23,10 +23,14 @@ body{
     background-color: #63aac0;
 }
 
-.blue{
+.purple{
     background-color: #819ff9; 
 }
 
 .yellow{
     background-color:#f99b45 ;
+}
+
+.flash{
+    background-color: white;
 }
