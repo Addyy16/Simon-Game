@@ -4,6 +4,7 @@ let userSeq = [];
 let btns = ["red","yellow", "green", "purple"];
 
 let h2 = document.querySelector('h2');
+let highScore = document.querySelector(`.highScore`);
 let level = 0;
 let started = false;
 
@@ -22,19 +23,43 @@ function btnFlash(btn){
 }
 
 function levelUp(){
+    userSeq = [];
     level++ ;
     h2.innerText = `Level ${level}`;
 
     let randIdx = Math.floor(Math.random()*4);
     let randColor = btns[randIdx];
-    console.log(randIdx);
     let randBtn = document.querySelector(`.${randColor}`);
+    gameSeq.push(randColor);
+    console.log(gameSeq);
     btnFlash(randBtn);
+}
+
+function checkAns(idx){
+    if(userSeq[idx] === gameSeq[idx]){
+        if(userSeq.length == gameSeq.length){
+            setTimeout(levelUp, 1000);
+        }
+    }else{
+        h2.innerHTML = `Game Over! Your score was ${level}<br> Press any key to restart.`;
+        reset();
+    }
+}
+
+function reset(){
+    gameSeq = [];
+    userSeq = [];
+    started = false;
+    level = 0;
 }
 
 function btnPress(){
     if(started == true){
-        btnFlash(this);
+        let btn = this;
+        btnFlash(btn);
+        userColor = btn.getAttribute("id")
+        userSeq.push(userColor);
+        checkAns(userSeq.length-1);
     }
     
 }
