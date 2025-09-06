@@ -2,6 +2,7 @@ let gameSeq = [];
 let userSeq = [];
 
 let btns = ["red","yellow", "green", "purple"];
+let max = 0;
 
 let h2 = document.querySelector('h2');
 let highScore = document.querySelector(`.highScore`);
@@ -42,6 +43,10 @@ function checkAns(idx){
         }
     }else{
         h2.innerHTML = `Game Over! Your score was ${level}<br> Press any key to restart.`;
+        if(max<level){
+            max = level;
+            highScore.innerText = `High Score : ${max}`;
+        }
         reset();
     }
 }
