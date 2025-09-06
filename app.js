@@ -43,6 +43,11 @@ function checkAns(idx){
         }
     }else{
         h2.innerHTML = `Game Over! Your score was ${level}<br> Press any key to restart.`;
+        document.querySelector('body').style.backgroundColor = "red";
+        setTimeout(function(){
+            document.querySelector('body').style.backgroundColor = "white";
+        },250);
+    
         if(max<level){
             max = level;
             highScore.innerText = `High Score : ${max}`;
