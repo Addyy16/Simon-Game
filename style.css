@@ -1,13 +1,13 @@
-body{
+body {
     text-align: center;
 }
 
-.btn-Cont{
+.btn-Cont {
     display: flex;
     justify-content: center;
 }
 
-.btn{
+.btn {
     width: 150px;
     height: 150px;
     border: 10px solid black;
@@ -15,22 +15,42 @@ body{
     margin: 2.5rem;
 }
 
-.red{
+.red {
     background-color: #d95980;
 }
 
-.green{
+.green {
     background-color: #63aac0;
 }
 
-.purple{
-    background-color: #819ff9; 
+.purple {
+    background-color: #819ff9;
 }
 
-.yellow{
-    background-color:#f99b45 ;
+.yellow {
+    background-color: #f99b45;
 }
 
-.flash{
+.flash {
     background-color: white;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinking-text {
+    font-size: 24px;
+    color: red;
+    animation: blink 1.5s infinite;
 }
