@@ -10,6 +10,7 @@ let level = 0;
 let started = false;
 
 document.addEventListener('keypress', function(){
+    h2.classList.remove("blinking-text");
     if(started == false){
         started = true;
         levelUp();
@@ -43,10 +44,11 @@ function checkAns(idx){
         }
     }else{
         h2.innerHTML = `Game Over! Your score was ${level}<br> Press any key to restart.`;
-        document.querySelector('body').style.backgroundColor = "red";
-        setTimeout(function(){
-            document.querySelector('body').style.backgroundColor = "white";
-        },250);
+        h2.classList.add("blinking-text");
+        // document.querySelector('body').style.backgroundColor = "red";
+        // setTimeout(function(){
+        //     document.querySelector('body').style.backgroundColor = "white";
+        // },250);
     
         if(max<level){
             max = level;
@@ -61,6 +63,7 @@ function reset(){
     userSeq = [];
     started = false;
     level = 0;
+    
 }
 
 function btnPress(){
